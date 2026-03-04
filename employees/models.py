@@ -21,4 +21,14 @@ class Formfield(models.Model):
 
     def __str__(self):
         return f"{self.label} ({self.field_type})"
+
+
+class Employee(models.Model):
+    form = models.ForeignKey(Form,on_delete=models.CASCADE)
+    data = models.JSONField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Employee {self.id}"
+    
     
